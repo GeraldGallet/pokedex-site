@@ -1,0 +1,30 @@
+.form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.formPart {
+  width: 45%;
+  margin: 0 2.5%;
+}
+
+.label {
+  font-size: large;
+}
+
+.value {
+  color: grey;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row-reverse;
+  padding-top: .5rem;
+}
+
+.listItem {
+  display: flex;
+  justify-content: space-between;
+}
