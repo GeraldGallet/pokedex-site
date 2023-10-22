@@ -23,6 +23,7 @@ export type PokemonId = number & { __brand: 'Pokemon' }
 
 export type Pokemon = {
   id: PokemonId
+  identifier: number
   name: string
   types: PokemonType[]
   evolves?: PokemonId

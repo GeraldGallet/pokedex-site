@@ -15,15 +15,12 @@ type PokemonListItemProps = {
 const PokemonListItem: FC<PokemonListItemProps> = ({ pokemon }) => (
   <ListItem>
     #
-    {pokemon.id}
+    {pokemon.identifier}
     {' '}
     -
     {' '}
     {pokemon.name}
-    {' '}
-    -
-    {' '}
-    {pokemon.types.map((type) => {
+     {pokemon.types.map((type) => {
       const provider = tagTypeProviders.find((provider2) => provider2.canHandle(type));
 
       return provider?.component(type) || <></>;
