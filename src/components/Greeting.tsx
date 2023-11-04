@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { ListItem } from '@/components/listItem/ListItem';
+import { ListItem } from '@/components/common/listItem/ListItem';
 
 type GreetingProps = {
   name: string

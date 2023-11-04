@@ -2,8 +2,8 @@
 
 import { FC, useState } from 'react';
 import styles from './page.module.css';
-import { Card } from '@/components/card/Card';
-import { Modal } from '@/components/modal/Modal';
+import { Card } from '@/components/common/card/Card';
+import { Modal } from '@/components/common/modal/Modal';
 import { Pokemon } from '@/types';
 import { useListPokemons } from '@/hooks';
 import { ListItem } from '@/components';

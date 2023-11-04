@@ -6,7 +6,7 @@ import {
   Pokemon, PokemonType, pokemonTypes, Sort,
 } from '@/types';
 import { ListItem } from '@/components';
-import { tagTypeProviders } from '@/components/tag/Tag';
+import { tagTypeProviders } from '@/components/common/tag/Tag';
 
 type PokemonListItemProps = {
   pokemon: Pokemon
@@ -69,7 +69,7 @@ const PokemonFilters: FC<PokemonFiltersProps> = ({
     <div>
       <input type="text" value={search} onChange={(e: any) => { e.preventDefault(); setSearch(e.target.value); }} />
       {sorts.map((currentSort) => (
-        <button type="button" onClick={() => setSort(currentSort)} disabled={sort.direction === currentSort.direction && sort.field === currentSort.field}>
+        <button key={`${currentSort.direction}-${currentSort.field}`} type="button" onClick={() => setSort(currentSort)} disabled={sort.direction === currentSort.direction && sort.field === currentSort.field}>
           {currentSort.field}
           {' '}
           {currentSort.direction}
@@ -82,7 +82,7 @@ const PokemonFilters: FC<PokemonFiltersProps> = ({
       <button type="button" onClick={addType}>Add filter</button>
       <br />
       {filterTypes.map((type) => (
-        <button type="button" onClick={() => removeType(type)}>
+        <button key={type} type="button" onClick={() => removeType(type)}>
           {type}
           {' '}
           x
@@ -97,14 +97,6 @@ export default function Page() {
   const [search, setSearch] = useState('');
   const [filterTypes, setFilterTypes] = useState<PokemonType[]>([]);
   const { pokemons } = useListPokemons({ sort, search, types: filterTypes });
-
-  const onClickType = (type: PokemonType) => {
-    if (filterTypes.includes(type)) {
-      setFilterTypes(filterTypes.filter((filterType) => filterType !== type));
-    } else {
-      setFilterTypes([...filterTypes, type]);
-    }
-  };
 
   return (
     <main>
